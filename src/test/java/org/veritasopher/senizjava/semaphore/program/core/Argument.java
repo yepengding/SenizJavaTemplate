@@ -1,11 +1,10 @@
-package org.veritasopher.senizjava.fsm.core;
+package org.veritasopher.senizjava.semaphore.program.core;
 
 import lombok.Getter;
 
 @Getter
 public enum Argument {
-
-    ARG0("arg0", Integer.class);
+    ID("id", String.class);
 
     private final String name;
     private final Class<?> type;
@@ -14,5 +13,4 @@ public enum Argument {
         this.name = name;
         this.type = type;
     }
-
 }

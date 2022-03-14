@@ -1,9 +1,9 @@
-package org.veritasopher.senizjava.fsm.base;
+package org.veritasopher.senizjava.semaphore.program.base;
 
 import lombok.Setter;
-import org.veritasopher.senizjava.fsm.core.Action;
-import org.veritasopher.senizjava.fsm.core.Argument;
-import org.veritasopher.senizjava.fsm.core.Variable;
+import org.veritasopher.senizjava.semaphore.program.core.Action;
+import org.veritasopher.senizjava.semaphore.program.core.Argument;
+import org.veritasopher.senizjava.semaphore.program.core.Variable;
 
 import java.util.Map;
 import java.util.Optional;
@@ -32,5 +32,4 @@ public abstract class ActionExecutor implements Action {
         }
         return Optional.empty();
     }
-
 }

@@ -5,6 +5,7 @@ Usage of the generated Java template.
 ## Test Cases
 
 - [x] Finite State Machine
+- [x] Semaphore
 
 ## Related Project
 

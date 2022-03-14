@@ -12,7 +12,6 @@ public class ActionEffect extends ActionExecutor {
         System.out.println("a0");
         System.out.println(getVariable(STATUS, STATUS.getType()));
         System.out.println(getVariable(FLAG, FLAG.getType()));
-        System.out.println(getArgument(ARG0, ARG0.getType()));
     }
 
     @Override
@@ -20,6 +19,5 @@ public class ActionEffect extends ActionExecutor {
         System.out.println("a1");
         System.out.println(getVariable(STATUS, STATUS.getType()));
         System.out.println(getVariable(FLAG, FLAG.getType()));
-        System.out.println(getArgument(ARG0, ARG0.getType()));
     }
 }
