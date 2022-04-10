@@ -7,6 +7,7 @@ import org.veritasopher.senizjava.semaphore.program.base.StateBehavior;
 import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 
+import static org.veritasopher.senizjava.semaphore.core.GlobalVariable.S;
 import static org.veritasopher.senizjava.semaphore.program.core.Variable.LOC;
 
 public enum State implements StateBehavior {
@@ -30,12 +31,12 @@ public enum State implements StateBehavior {
 
         @Override
         public State next(ActionExecutor exec, Map<Variable, Object> varSet, ConcurrentMap<Argument, Object> argSet, ConcurrentMap<GlobalVariable, Object> gVarSet) {
-            if ((1 > 0)) {
+            if (((int) gVarSet.get(S) > 0)) {
+                gVarSet.put(S, ((int) (gVarSet.get(S)) - 1));
                 exec.enterCritical();
                 return critical;
-            } else {
-                return wait;
             }
+            return wait;
         }
     },
 
@@ -47,7 +48,9 @@ public enum State implements StateBehavior {
 
         @Override
         public State next(ActionExecutor exec, Map<Variable, Object> varSet, ConcurrentMap<Argument, Object> argSet, ConcurrentMap<GlobalVariable, Object> gVarSet) {
+            gVarSet.put(S, ((int) (gVarSet.get(S)) + 1));
             exec.exitCritical();
+//            return plain;
             return null;
         }
     }

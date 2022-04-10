@@ -14,11 +14,11 @@ import java.util.concurrent.Executors;
 import static org.veritasopher.senizjava.semaphore.core.GlobalVariable.S;
 import static org.veritasopher.senizjava.semaphore.program.core.Argument.ID;
 
-public class SystemExecutor {
+public class ControlSystemExecutor {
 
     private final ConcurrentMap<GlobalVariable, Object> globalVariableSet;
 
-    public SystemExecutor() {
+    public ControlSystemExecutor() {
         this.globalVariableSet = new ConcurrentHashMap<>();
         initGlobalVariable();
     }

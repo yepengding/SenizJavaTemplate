@@ -6,6 +6,7 @@ Usage of the generated Java template.
 
 - [x] Finite State Machine
 - [x] Semaphore
+- [x] Block writing
 
 ## Related Project
 

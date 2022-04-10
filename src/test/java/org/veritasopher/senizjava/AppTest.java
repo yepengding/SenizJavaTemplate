@@ -11,10 +11,15 @@ public class AppTest {
         executor.run();
     }
 
-
     @Test
     public void testSemaphore() {
-        org.veritasopher.senizjava.semaphore.SystemExecutor executor = new org.veritasopher.senizjava.semaphore.SystemExecutor();
+        org.veritasopher.senizjava.semaphore.ControlSystemExecutor executor = new org.veritasopher.senizjava.semaphore.ControlSystemExecutor();
         executor.run();
+    }
+
+    @Test
+    public void testBlockWriting() {
+        org.veritasopher.senizjava.blockwriting.ControlSystemExecutor systemExecutor = new org.veritasopher.senizjava.blockwriting.ControlSystemExecutor();
+        systemExecutor.run();
     }
 }
