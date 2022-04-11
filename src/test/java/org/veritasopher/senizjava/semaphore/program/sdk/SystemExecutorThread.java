@@ -1,4 +1,4 @@
-package org.veritasopher.senizjava.semaphore.sdk;
+package org.veritasopher.senizjava.semaphore.program.sdk;
 
 import org.veritasopher.senizjava.semaphore.core.GlobalVariable;
 import org.veritasopher.senizjava.semaphore.program.ActionEffect;

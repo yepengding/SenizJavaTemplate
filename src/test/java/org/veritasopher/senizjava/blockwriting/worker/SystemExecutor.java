@@ -2,7 +2,7 @@ package org.veritasopher.senizjava.blockwriting.worker;
 
 import org.veritasopher.senizjava.blockwriting.core.GlobalVariable;
 import org.veritasopher.senizjava.blockwriting.sdk.Sync;
-import org.veritasopher.senizjava.blockwriting.sdk.SystemExecutorThread;
+import org.veritasopher.senizjava.blockwriting.worker.sdk.SystemExecutorThread;
 import org.veritasopher.senizjava.blockwriting.worker.core.Argument;
 import org.veritasopher.senizjava.blockwriting.worker.core.State;
 

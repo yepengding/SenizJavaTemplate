@@ -2,7 +2,7 @@ package org.veritasopher.senizjava.blockwriting;
 
 import org.veritasopher.senizjava.blockwriting.core.GlobalVariable;
 import org.veritasopher.senizjava.blockwriting.worker.core.Argument;
-import org.veritasopher.senizjava.blockwriting.sdk.SystemExecutorThread;
+import org.veritasopher.senizjava.blockwriting.worker.sdk.SystemExecutorThread;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,32 +12,33 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import static org.veritasopher.senizjava.blockwriting.core.GlobalVariable.S;
-import static org.veritasopher.senizjava.blockwriting.worker.core.Argument.ID;
+import static org.veritasopher.senizjava.blockwriting.worker.core.Argument.PID;
 
 public class ControlSystemExecutor {
 
-    private final ConcurrentMap<GlobalVariable, Object> globalVariableSet;
+    private final ConcurrentMap<GlobalVariable, Object> gVarSet;
 
     public ControlSystemExecutor() {
-        this.globalVariableSet = new ConcurrentHashMap<>();
+        this.gVarSet = new ConcurrentHashMap<>();
         initGlobalVariable();
     }
 
     private void initGlobalVariable() {
-        globalVariableSet.put(S, 1);
+        gVarSet.put(S, 1);
     }
 
     public void run() {
-        ConcurrentMap<Argument, Object> w1ArgSet = new ConcurrentHashMap<>();
-        w1ArgSet.put(ID, "w1");
-        org.veritasopher.senizjava.blockwriting.worker.SystemExecutor w1 = new org.veritasopher.senizjava.blockwriting.worker.SystemExecutor("w1", w1ArgSet, globalVariableSet);
+        ConcurrentMap<Argument, Object> argSet;
+        argSet = new ConcurrentHashMap<>();
+        argSet.put(PID, "w1");
+        org.veritasopher.senizjava.blockwriting.worker.SystemExecutor w1 = new org.veritasopher.senizjava.blockwriting.worker.SystemExecutor("w1", argSet, gVarSet);
 
-        ConcurrentMap<Argument, Object> w2ArgSet = new ConcurrentHashMap<>();
-        w2ArgSet.put(ID, "w2");
+        argSet = new ConcurrentHashMap<>();
+        argSet.put(PID, "w2");
         org.veritasopher
-                .senizjava.blockwriting.worker.SystemExecutor w2 = new org.veritasopher.senizjava.blockwriting.worker.SystemExecutor("w2", w2ArgSet, globalVariableSet);
+                .senizjava.blockwriting.worker.SystemExecutor w2 = new org.veritasopher.senizjava.blockwriting.worker.SystemExecutor("w2", argSet, gVarSet);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
 
         List<SystemExecutorThread<GlobalVariable>> callables = new ArrayList<>();
         callables.add(w1);

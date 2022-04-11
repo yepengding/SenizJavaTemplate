@@ -4,7 +4,7 @@ import org.veritasopher.senizjava.semaphore.core.GlobalVariable;
 import org.veritasopher.senizjava.semaphore.program.core.Argument;
 import org.veritasopher.senizjava.semaphore.program.core.State;
 import org.veritasopher.senizjava.semaphore.sdk.Sync;
-import org.veritasopher.senizjava.semaphore.sdk.SystemExecutorThread;
+import org.veritasopher.senizjava.semaphore.program.sdk.SystemExecutorThread;
 
 import java.util.concurrent.ConcurrentMap;
 

@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum Argument {
-    ID("id", String.class);
+    PID("pid", String.class);
 
     private final String name;
     private final Class<?> type;

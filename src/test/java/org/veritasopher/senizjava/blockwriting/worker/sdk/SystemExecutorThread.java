@@ -1,4 +1,4 @@
-package org.veritasopher.senizjava.blockwriting.sdk;
+package org.veritasopher.senizjava.blockwriting.worker.sdk;
 
 import org.veritasopher.senizjava.blockwriting.worker.ActionEffect;
 import org.veritasopher.senizjava.blockwriting.worker.core.Argument;
