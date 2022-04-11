@@ -1,7 +1,6 @@
 package org.veritasopher.senizjava.blockwriting;
 
 import org.veritasopher.senizjava.blockwriting.core.GlobalVariable;
-import org.veritasopher.senizjava.blockwriting.worker.core.Argument;
 import org.veritasopher.senizjava.blockwriting.sdk.SystemExecutorThread;
 
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import static org.veritasopher.senizjava.blockwriting.core.GlobalVariable.S;
-import static org.veritasopher.senizjava.blockwriting.worker.core.Argument.PID;
 
 public class ControlSystemExecutor {
 
@@ -28,13 +26,13 @@ public class ControlSystemExecutor {
     }
 
     public void run() {
-        ConcurrentMap<Argument, Object> argSet;
+        ConcurrentMap<org.veritasopher.senizjava.blockwriting.worker.core.Argument, Object> argSet;
         argSet = new ConcurrentHashMap<>();
-        argSet.put(PID, "w1");
+        argSet.put(org.veritasopher.senizjava.blockwriting.worker.core.Argument.PID, "w1");
         org.veritasopher.senizjava.blockwriting.worker.SystemExecutor w1 = new org.veritasopher.senizjava.blockwriting.worker.SystemExecutor("w1", argSet, gVarSet);
 
         argSet = new ConcurrentHashMap<>();
-        argSet.put(PID, "w2");
+        argSet.put(org.veritasopher.senizjava.blockwriting.worker.core.Argument.PID, "w2");
         org.veritasopher
                 .senizjava.blockwriting.worker.SystemExecutor w2 = new org.veritasopher.senizjava.blockwriting.worker.SystemExecutor("w2", argSet, gVarSet);
 

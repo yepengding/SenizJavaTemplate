@@ -11,7 +11,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import static org.veritasopher.senizjava.semaphore.core.GlobalVariable.S;
-import static org.veritasopher.senizjava.semaphore.program.core.Argument.PID;
 
 public class ControlSystemExecutor {
 
@@ -28,11 +27,11 @@ public class ControlSystemExecutor {
 
     public void run() {
         ConcurrentMap<org.veritasopher.senizjava.semaphore.program.core.Argument, Object> p1ArgSet = new ConcurrentHashMap<>();
-        p1ArgSet.put(PID, "p1");
+        p1ArgSet.put(org.veritasopher.senizjava.semaphore.program.core.Argument.PID, "p1");
         org.veritasopher.senizjava.semaphore.program.SystemExecutor p1 = new org.veritasopher.senizjava.semaphore.program.SystemExecutor("p1", p1ArgSet, gVarSet);
 
         ConcurrentMap<org.veritasopher.senizjava.semaphore.program.core.Argument, Object> p2ArgSet = new ConcurrentHashMap<>();
-        p2ArgSet.put(PID, "p2");
+        p2ArgSet.put(org.veritasopher.senizjava.semaphore.program.core.Argument.PID, "p2");
         org.veritasopher.senizjava.semaphore.program.SystemExecutor p2 = new org.veritasopher.senizjava.semaphore.program.SystemExecutor("p2", p2ArgSet, gVarSet);
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
