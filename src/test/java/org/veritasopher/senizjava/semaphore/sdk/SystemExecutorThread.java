@@ -1,4 +1,4 @@
-package org.veritasopher.senizjava.fsm.sdk;
+package org.veritasopher.senizjava.semaphore.sdk;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;

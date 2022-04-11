@@ -1,8 +1,7 @@
 package org.veritasopher.senizjava.semaphore;
 
 import org.veritasopher.senizjava.semaphore.core.GlobalVariable;
-import org.veritasopher.senizjava.semaphore.program.core.Argument;
-import org.veritasopher.senizjava.semaphore.program.sdk.SystemExecutorThread;
+import org.veritasopher.senizjava.semaphore.sdk.SystemExecutorThread;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,15 +27,13 @@ public class ControlSystemExecutor {
     }
 
     public void run() {
-        ConcurrentMap<Argument, Object> argSet;
+        ConcurrentMap<org.veritasopher.senizjava.semaphore.program.core.Argument, Object> p1ArgSet = new ConcurrentHashMap<>();
+        p1ArgSet.put(PID, "p1");
+        org.veritasopher.senizjava.semaphore.program.SystemExecutor p1 = new org.veritasopher.senizjava.semaphore.program.SystemExecutor("p1", p1ArgSet, gVarSet);
 
-        argSet = new ConcurrentHashMap<>();
-        argSet.put(PID, "p1");
-        org.veritasopher.senizjava.semaphore.program.SystemExecutor p1 = new org.veritasopher.senizjava.semaphore.program.SystemExecutor("p1", argSet, gVarSet);
-
-        argSet = new ConcurrentHashMap<>();
-        argSet.put(PID, "p2");
-        org.veritasopher.senizjava.semaphore.program.SystemExecutor p2 = new org.veritasopher.senizjava.semaphore.program.SystemExecutor("p2", argSet, gVarSet);
+        ConcurrentMap<org.veritasopher.senizjava.semaphore.program.core.Argument, Object> p2ArgSet = new ConcurrentHashMap<>();
+        p2ArgSet.put(PID, "p2");
+        org.veritasopher.senizjava.semaphore.program.SystemExecutor p2 = new org.veritasopher.senizjava.semaphore.program.SystemExecutor("p2", p2ArgSet, gVarSet);
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
