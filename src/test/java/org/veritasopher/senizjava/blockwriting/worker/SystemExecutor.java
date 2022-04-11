@@ -1,9 +1,10 @@
 package org.veritasopher.senizjava.blockwriting.worker;
 
 import org.veritasopher.senizjava.blockwriting.core.GlobalVariable;
+import org.veritasopher.senizjava.blockwriting.sdk.Sync;
+import org.veritasopher.senizjava.blockwriting.sdk.SystemExecutorThread;
 import org.veritasopher.senizjava.blockwriting.worker.core.Argument;
 import org.veritasopher.senizjava.blockwriting.worker.core.State;
-import org.veritasopher.senizjava.blockwriting.sdk.SystemExecutorThread;
 
 import java.util.concurrent.ConcurrentMap;
 
@@ -22,8 +23,10 @@ public class SystemExecutor extends SystemExecutorThread<GlobalVariable> {
         System.out.println("Running " + id);
         State state = State.processing;
         while (state != null) {
+            Sync.lock.lock();
             state.init(variableSet, argumentSet, globalVariableSet);
             state = state.next(actionEffect, variableSet, argumentSet, globalVariableSet);
+            Sync.lock.unlock();
         }
     }
 

@@ -33,7 +33,7 @@ public class ControlSystemExecutor {
         org.veritasopher.senizjava.semaphore.program.SystemExecutor p1 = new org.veritasopher.senizjava.semaphore.program.SystemExecutor("p1", p1ArgSet, globalVariableSet);
 
         ConcurrentMap<Argument, Object> p2ArgSet = new ConcurrentHashMap<>();
-        p1ArgSet.put(ID, "p2");
+        p2ArgSet.put(ID, "p2");
         org.veritasopher.senizjava.semaphore.program.SystemExecutor p2 = new org.veritasopher.senizjava.semaphore.program.SystemExecutor("p2", p2ArgSet, globalVariableSet);
 
         ExecutorService executorService = Executors.newFixedThreadPool(2);
